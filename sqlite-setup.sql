@@ -1,13 +1,27 @@
--- create table Customer(
---     CustomerId INT IDENTITY(1,1) PRIMARY KEY,
---     [Name] NVARCHAR(100),
---     [Email] VARCHAR(40) unique,
---     [Phone] VARCHAR(50) unique
--- );
+CREATE TABLE "Customer" (
+	"CustomerId"	INTEGER,
+	"Name"	TEXT,
+	"Email"	TEXT,
+	"Phone"	TEXT,
+	PRIMARY KEY("CustomerId")
+);
 
-create table Location (
-    LocationId INT IDENTITY(1,1) PRIMARY KEY,
-    CustomerId INT,
-    [Address] NVARCHAR(200),
-	FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
+
+CREATE TABLE "Location" (
+	"LocationId"	INTEGER,
+	"CustomerId"	INTEGER,
+	"Address"	TEXT,
+	PRIMARY KEY("LocationId")
+);
+
+
+CREATE TABLE "ChangeLog" (
+	"ChangeLogId"	INTEGER,
+	"TableName"	TEXT,
+	"RecordId"	INTEGER,
+	"ColumnName"	TEXT,
+	"PreviousValue"	TEXT,
+	"NewValue"	TEXT,
+	"Timestamp"	TEXT,
+	PRIMARY KEY("ChangeLogId" AUTOINCREMENT)
 );
